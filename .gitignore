@@ -1,0 +1,35 @@
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor files
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# Dependencies & Build artifacts (common patterns)
+node_modules/
+dist/
+build/
+target/
+bin/
+obj/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.log
+
+# Coverage and test reports
+coverage/
+.nyc_output/
+.pytest_cache/

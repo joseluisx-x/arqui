@@ -1,0 +1,53 @@
+openapi: 3.0.3
+info:
+  title: SIGA-U Mini API - Módulos Académico y Caja
+  version: 1.0.0
+paths:
+  /api/v1/alumnos-matriculados:
+    get:
+      summary: Lista alumnos matriculados por curso
+      parameters:
+        - name: curso
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Éxito
+  /api/v1/alumnos-matriculados/pdf:
+    get:
+      summary: Generar reporte PDF de alumnos matriculados por curso
+      parameters:
+        - name: curso
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Archivo PDF con la lista de alumnos
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+  /api/v1/caja/pagos:
+    post:
+      summary: Registrar un pago en caja
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alumno_id:
+                  type: integer
+                monto:
+                  type: number
+                concepto:
+                  type: string
+      responses:
+        '201':
+          description: Pago registrado exitosamente
